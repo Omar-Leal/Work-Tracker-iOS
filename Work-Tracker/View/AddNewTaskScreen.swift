@@ -18,6 +18,31 @@ struct AddNewTaskView: View {
 					.padding(.horizontal)
 					.padding(.vertical, 10)
 					.background(Color("grayAccent").opacity(0.4), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+				
+				//Task Color Picker Zone
+				
+				HStack(spacing: 0) {
+					ForEach(taskColorPickerCollection, id: \.self) { index in
+						Circle()
+							.fill(Color(index))
+							.frame(width: 26, height: 26)
+							.overlay(content:{
+								if index == taskModel.taskColor {
+									Image(systemName: "circle.fill")
+										.font(.callout.bold())
+										.opacity(0.8)
+								}
+							}).onTapGesture {
+								withAnimation {
+									taskModel.taskColor = index
+								}
+							}
+							.frame(maxWidth: .infinity)
+						
+					}
+				}
+				
+				
 			}
 			.frame(maxHeight: .infinity, alignment: .top)
 			.padding()

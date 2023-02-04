@@ -54,8 +54,6 @@ struct MainScreen: View {
 			.padding()
 			.sheet(isPresented: $taskModel.addNewTask) {
 				
-			} content: {
-				
 			}
 		
     }

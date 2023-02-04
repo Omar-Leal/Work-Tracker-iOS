@@ -13,7 +13,7 @@ class TaskerViewModel: ObservableObject {
 	@Published var addNewTask: Bool = false
 	 
 	@Published var title: String = ""
-	@Published var taskColor: String = "sentinelAccent"
+	@Published var taskColor: String = "orangeAccent"
 	@Published var weekDays: [String] = []
 	@Published var isReminderOn: Bool = false
 	@Published var remainderText: String = ""

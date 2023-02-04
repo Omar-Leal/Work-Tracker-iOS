@@ -15,7 +15,8 @@
 		E749B5F3298C9CB100021650 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749B5F2298C9CB100021650 /* Persistence.swift */; };
 		E749B5F6298C9CB100021650 /* Work_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E749B5F4298C9CB100021650 /* Work_Tracker.xcdatamodeld */; };
 		E754CD66298E7B2000CD069E /* TaskerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD65298E7B2000CD069E /* TaskerViewModel.swift */; };
-		E754CD68298E8B3700CD069E /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD67298E8B3700CD069E /* AddNewTaskView.swift */; };
+		E754CD68298E8B3700CD069E /* AddNewTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD67298E8B3700CD069E /* AddNewTaskScreen.swift */; };
+		E754CD6B298E9E0F00CD069E /* TaskColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD6A298E9E0F00CD069E /* TaskColors.swift */; };
 		E7595501298D30CE00512030 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7595500298D30CE00512030 /* MainScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +30,8 @@
 		E749B5F2298C9CB100021650 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E749B5F5298C9CB100021650 /* Work_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Work_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		E754CD65298E7B2000CD069E /* TaskerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerViewModel.swift; sourceTree = "<group>"; };
-		E754CD67298E8B3700CD069E /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
+		E754CD67298E8B3700CD069E /* AddNewTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskScreen.swift; sourceTree = "<group>"; };
+		E754CD6A298E9E0F00CD069E /* TaskColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskColors.swift; sourceTree = "<group>"; };
 		E7595500298D30CE00512030 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 		E749B5E8298C9CB000021650 /* Work-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				E754CD69298E9E0100CD069E /* Models */,
 				E75954FF298D2EFB00512030 /* ViewModel */,
 				E75954FE298D2EF300512030 /* View */,
 				E749B5E9298C9CB000021650 /* Work_TrackerApp.swift */,
@@ -84,11 +87,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E754CD69298E9E0100CD069E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E754CD6A298E9E0F00CD069E /* TaskColors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E75954FE298D2EF300512030 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E7595500298D30CE00512030 /* MainScreen.swift */,
-				E754CD67298E8B3700CD069E /* AddNewTaskView.swift */,
+				E754CD67298E8B3700CD069E /* AddNewTaskScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,8 +188,9 @@
 				E749B5EC298C9CB000021650 /* ContentView.swift in Sources */,
 				E7595501298D30CE00512030 /* MainScreen.swift in Sources */,
 				E749B5EA298C9CB000021650 /* Work_TrackerApp.swift in Sources */,
+				E754CD6B298E9E0F00CD069E /* TaskColors.swift in Sources */,
 				E749B5F6298C9CB100021650 /* Work_Tracker.xcdatamodeld in Sources */,
-				E754CD68298E8B3700CD069E /* AddNewTaskView.swift in Sources */,
+				E754CD68298E8B3700CD069E /* AddNewTaskScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
