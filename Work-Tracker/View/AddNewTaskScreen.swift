@@ -25,12 +25,12 @@ struct AddNewTaskView: View {
 					ForEach(taskColorPickerCollection, id: \.self) { index in
 						Circle()
 							.fill(Color(index))
-							.frame(width: 26, height: 26)
+							.frame(width: 32, height: 32)
 							.overlay(content:{
 								if index == taskModel.taskColor {
 									Image(systemName: "circle.fill")
 										.font(.callout.bold())
-										.opacity(0.8)
+										.opacity(0.7)
 								}
 							}).onTapGesture {
 								withAnimation {
@@ -38,6 +38,42 @@ struct AddNewTaskView: View {
 								}
 							}
 							.frame(maxWidth: .infinity)
+						
+					}
+				}
+				.padding(.vertical)
+				Divider()
+				
+				// MARK: Frequentyl selected
+				VStack(alignment: .leading, spacing: 6) {
+					Text("Frequency")
+					let weeDays = Calendar.current.weekdaySymbols
+					HStack(spacing: 10) {
+						ForEach(weeDays, id: \.self) { day in
+							let indexDay = taskModel.weekDays.firstIndex { getValue in
+								return getValue == day
+							} ?? -1
+							Text(day.prefix(2))
+								.font(.callout)
+								.fontWeight(.heavy)
+								.frame(maxWidth: .infinity)
+								.padding(.vertical)
+								.background {
+									RoundedRectangle(cornerRadius: 25, style: .continuous)
+										.fill(indexDay != -1 ? Color(taskModel.taskColor) : Color("grayAccent").opacity(0.4))
+										.frame(width: 50,height: 50)
+								}
+								.onTapGesture {
+									withAnimation(){
+										if indexDay != -1 {
+											taskModel.weekDays.remove(at: indexDay)
+										} else {
+											taskModel.weekDays.append(day)
+										}
+									}
+								}
+						}
+						
 						
 					}
 				}
