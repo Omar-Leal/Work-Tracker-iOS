@@ -98,8 +98,31 @@ struct AddNewTaskView: View {
 					Toggle(isOn: $taskModel.isReminderOn) {}
 						.labelsHidden()
 			}
-				
+		
+				//MARK: Reminder TEXT
+				HStack(spacing: 16) {
+					Label {
+						Text( taskModel.remainderDate.formatted(date: .omitted, time: .shortened) )
+					} icon: {
+						Image(systemName: "clock.circle.fill")
+					}.padding(.horizontal)
+						.padding(.vertical, 8)
+				  .background(Color("grayAccent").opacity(0.4), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+				  .onTapGesture {
+					  withAnimation {
+						  taskModel.showTimePicker.toggle()
+					  }
+				  }
+					// Text Divider
+					TextField("Reminder Text", text: $taskModel.remainderText)
+						.padding(.horizontal)
+						.padding(.vertical, 10)
+						.background(Color("grayAccent").opacity(0.4), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+				}
+				.frame(height: taskModel.isReminderOn ? nil : 0)
+				.opacity(taskModel.isReminderOn ? 1 : 0)
 			}
+			.animation(.easeInOut, value: taskModel.isReminderOn)
 			.frame(maxHeight: .infinity, alignment: .top)
 			.padding()
 			.navigationBarTitleDisplayMode(.inline)
@@ -116,6 +139,18 @@ struct AddNewTaskView: View {
 					Button("Done") {
 						
 					} .tint(Color("myTextColor"))
+				}
+			}
+		}
+		.overlay {
+			if taskModel.showTimePicker {
+				ZStack {
+					Rectangle()
+						.fill(.ultraThinMaterial)
+						.ignoresSafeArea()
+					
+					DatePicker.int("", selection: $taskModel.remainderDate, displayedComponents: [.hourAndMinute])
+						.ladelIsHidden()
 				}
 			}
 		}

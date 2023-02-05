@@ -18,6 +18,15 @@ class TaskerViewModel: ObservableObject {
 	@Published var isReminderOn: Bool = false
 	@Published var remainderText: String = ""
 	@Published var remainderDate: Date = Date()
+	
+	
+	// MARK reminder time picker
+	
+	@Published var showTimePicker: Bool = false
+	
+	
+	
+	
 }
     
 
