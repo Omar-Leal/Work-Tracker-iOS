@@ -46,7 +46,9 @@ struct AddNewTaskView: View {
 				
 				// MARK: Frequentyl selected
 				VStack(alignment: .leading, spacing: 6) {
-					Text("Frequency")
+					Text("Pick a day")
+						.fontWeight(.bold)
+						.frame(maxWidth: .infinity)
 					let weeDays = Calendar.current.weekdaySymbols
 					HStack(spacing: 10) {
 						ForEach(weeDays, id: \.self) { day in
@@ -60,7 +62,7 @@ struct AddNewTaskView: View {
 								.padding(.vertical)
 								.background {
 									RoundedRectangle(cornerRadius: 25, style: .continuous)
-										.fill(indexDay != -1 ? Color(taskModel.taskColor) : Color("grayAccent").opacity(0.4))
+										.fill(indexDay != -1 ? Color("tealAccent") : Color("grayAccent").opacity(0.4))
 										.frame(width: 50,height: 50)
 								}
 								.onTapGesture {
@@ -76,8 +78,26 @@ struct AddNewTaskView: View {
 						
 						
 					}
+					.padding(.top, 16)
 				}
 				
+				Divider()
+					.padding(.vertical, 10)
+				
+				HStack {
+					VStack {
+						Text("Reminder")
+							.fontWeight(.bold)
+							.foregroundColor(Color("myTextColor"))
+						
+						Text("Just Notification")
+							.font(.caption)
+							.foregroundColor(Color("myTextColor"))
+					}
+					.frame(maxWidth: .infinity)
+					Toggle(isOn: $taskModel.isReminderOn) {}
+						.labelsHidden()
+			}
 				
 			}
 			.frame(maxHeight: .infinity, alignment: .top)

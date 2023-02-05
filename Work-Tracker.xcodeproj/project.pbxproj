@@ -65,9 +65,7 @@
 		E749B5E8298C9CB000021650 /* Work-Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				E754CD69298E9E0100CD069E /* Models */,
-				E75954FF298D2EFB00512030 /* ViewModel */,
-				E75954FE298D2EF300512030 /* View */,
+				E7C75C00298F3A3D00680DF5 /* AppSections */,
 				E749B5E9298C9CB000021650 /* Work_TrackerApp.swift */,
 				E749B5EB298C9CB000021650 /* ContentView.swift */,
 				E7379BF1298DC2FF00C5F8EF /* ColorUI.xcassets */,
@@ -110,6 +108,16 @@
 				E754CD65298E7B2000CD069E /* TaskerViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E7C75C00298F3A3D00680DF5 /* AppSections */ = {
+			isa = PBXGroup;
+			children = (
+				E754CD69298E9E0100CD069E /* Models */,
+				E75954FF298D2EFB00512030 /* ViewModel */,
+				E75954FE298D2EF300512030 /* View */,
+			);
+			path = AppSections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
