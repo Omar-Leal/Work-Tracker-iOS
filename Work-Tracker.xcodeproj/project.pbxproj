@@ -14,7 +14,7 @@
 		E749B5F1298C9CB100021650 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E749B5F0298C9CB100021650 /* Preview Assets.xcassets */; };
 		E749B5F3298C9CB100021650 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749B5F2298C9CB100021650 /* Persistence.swift */; };
 		E749B5F6298C9CB100021650 /* Work_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E749B5F4298C9CB100021650 /* Work_Tracker.xcdatamodeld */; };
-		E754CD66298E7B2000CD069E /* TaskerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD65298E7B2000CD069E /* TaskerViewModel.swift */; };
+		E754CD66298E7B2000CD069E /* AddNewTaskVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD65298E7B2000CD069E /* AddNewTaskVM.swift */; };
 		E754CD68298E8B3700CD069E /* AddNewTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD67298E8B3700CD069E /* AddNewTaskScreen.swift */; };
 		E754CD6B298E9E0F00CD069E /* TaskColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E754CD6A298E9E0F00CD069E /* TaskColors.swift */; };
 		E7595501298D30CE00512030 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7595500298D30CE00512030 /* MainScreen.swift */; };
@@ -29,7 +29,7 @@
 		E749B5F0298C9CB100021650 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E749B5F2298C9CB100021650 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E749B5F5298C9CB100021650 /* Work_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Work_Tracker.xcdatamodel; sourceTree = "<group>"; };
-		E754CD65298E7B2000CD069E /* TaskerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskerViewModel.swift; sourceTree = "<group>"; };
+		E754CD65298E7B2000CD069E /* AddNewTaskVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskVM.swift; sourceTree = "<group>"; };
 		E754CD67298E8B3700CD069E /* AddNewTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskScreen.swift; sourceTree = "<group>"; };
 		E754CD6A298E9E0F00CD069E /* TaskColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskColors.swift; sourceTree = "<group>"; };
 		E7595500298D30CE00512030 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -46,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7309A9E29901BE5005B8A28 /* AddNewTaskScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E754CD65298E7B2000CD069E /* AddNewTaskVM.swift */,
+				E754CD67298E8B3700CD069E /* AddNewTaskScreen.swift */,
+			);
+			path = AddNewTaskScreen;
+			sourceTree = "<group>";
+		};
 		E749B5DD298C9CB000021650 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +74,7 @@
 		E749B5E8298C9CB000021650 /* Work-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				E754CD69298E9E0100CD069E /* Models */,
 				E7C75C00298F3A3D00680DF5 /* AppSections */,
 				E749B5E9298C9CB000021650 /* Work_TrackerApp.swift */,
 				E749B5EB298C9CB000021650 /* ContentView.swift */,
@@ -93,29 +103,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E75954FE298D2EF300512030 /* View */ = {
+		E75954FE298D2EF300512030 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
 				E7595500298D30CE00512030 /* MainScreen.swift */,
-				E754CD67298E8B3700CD069E /* AddNewTaskScreen.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E75954FF298D2EFB00512030 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E754CD65298E7B2000CD069E /* TaskerViewModel.swift */,
-			);
-			path = ViewModel;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		E7C75C00298F3A3D00680DF5 /* AppSections */ = {
 			isa = PBXGroup;
 			children = (
-				E754CD69298E9E0100CD069E /* Models */,
-				E75954FF298D2EFB00512030 /* ViewModel */,
-				E75954FE298D2EF300512030 /* View */,
+				E7309A9E29901BE5005B8A28 /* AddNewTaskScreen */,
+				E75954FE298D2EF300512030 /* MainScreen */,
 			);
 			path = AppSections;
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E754CD66298E7B2000CD069E /* TaskerViewModel.swift in Sources */,
+				E754CD66298E7B2000CD069E /* AddNewTaskVM.swift in Sources */,
 				E749B5F3298C9CB100021650 /* Persistence.swift in Sources */,
 				E749B5EC298C9CB000021650 /* ContentView.swift in Sources */,
 				E7595501298D30CE00512030 /* MainScreen.swift in Sources */,
