@@ -41,6 +41,18 @@ struct AddNewTaskView: View {
 						Image(systemName: "xmark.circle")
 					}.tint(Color("myTextColor"))
 				}
+				
+				
+				// Delete Button
+				ToolbarItem(placement: .navigationBarLeading) {
+					Button {
+						env.dismiss()
+					} label: {
+						Image(systemName: "trash")
+					}.tint(Color("myTextColor"))
+				}
+				
+				
 				ToolbarItem(placement: .navigationBarTrailing) {
 					Button("Done") {
 						Task {
@@ -130,6 +142,7 @@ extension AddNewTaskView {
 			}
 		}
 		.padding(.vertical)
+		
 	}
 }
 

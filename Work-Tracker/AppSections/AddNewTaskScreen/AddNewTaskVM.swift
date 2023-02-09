@@ -19,10 +19,37 @@ class TaskerViewModel: ObservableObject {
 	@Published var isReminderOn: Bool = false
 	@Published var remainderText: String = ""
 	@Published var remainderDate: Date = Date()
-	
+	@Published var editTask: Work?
 	
 	// MARK reminder time picker
 	@Published var showTimePicker: Bool = false
+	
+	//@MARK: RESET TASK
+	func resetData() {
+		title = ""
+		taskColor = "myTextColor"
+		weekDays = []
+		isReminderOn = false
+		remainderDate = Date()
+		remainderText = ""
+		editTask = nil
+	}
+	
+	//@MARK : editing task
+	func editingTask() {
+		if let editTask = editTask {
+			title = editTask.title ?? ""
+			taskColor = editTask.color ?? "myTextColor"
+			weekDays = editTask.weeksDays ?? []
+			isReminderOn = editTask.isReminderOn 
+			remainderDate = editTask.notificationData ?? Date()
+			remainderText = editTask.reminderText ?? ""
+			
+		}
+	}
+	
+	
+	
 	
 	// @MARK: Adding task to database
 	func addTask(context: NSManagedObjectContext) async -> Bool {
@@ -101,15 +128,7 @@ class TaskerViewModel: ObservableObject {
 	}
 	
 	
-	//@MARK: Erasing all existing content
-	func resetData() {
-		title = ""
-		taskColor = ""
-		weekDays = []
-		isReminderOn = false
-		remainderDate = Date()
-		remainderText = ""
-	}
+
 	
 	func doneStatus() -> Bool {
 		let reminderStatus = isReminderOn ? remainderText == ""  : false

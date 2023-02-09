@@ -15,7 +15,7 @@ struct MainScreen: View {
 	
     var body: some View {
 		VStack(spacing: 0) {
-			Text("Habits")
+			Text("My tasks")
 				.font(.title2)
 				.frame(maxWidth: .infinity)
 				.overlay(alignment: .trailing) {
@@ -78,19 +78,20 @@ extension MainScreen {
 extension MainScreen {
 	@ViewBuilder
 	func TaskDetail(task: Work) -> some View {
-		VStack(spacing: 6) {
-			HStack {
-				Text(task.title ?? "")
+		VStack() {
+			HStack() {
+				Text(task.title ?? "hello omar")
 					.font(.callout)
 					.fontWeight(.semibold)
 					.lineLimit(1)
+					.padding(.top, 24)
 				
 				Image(systemName: "bell.badge.fill")
 					.font(.callout)
 					.foregroundColor(Color(task.color ?? "grayAccent"))
 					.scaleEffect(0.9)
 					.opacity(task.isReminderOn ? 1 : 0)
-				
+					.padding(.top, 24)
 				Spacer()
 				
 				let count = (task.weeksDays?.count ?? 0)
@@ -99,6 +100,7 @@ extension MainScreen {
 					.foregroundColor(.gray)
 				
 			}.padding(.horizontal, 10)
+				.padding(.bottom, 24)
 			
 			// MARK: Show current week
 			// marking actived dates of task
@@ -113,7 +115,7 @@ extension MainScreen {
 			    return (symbol[index], currentDate!)
 			}
 			
-			HStack(spacing: 1) {
+			HStack(spacing: 0) {
 				ForEach(activePlot.indices, id: \.self) { index in
 					let item = activePlot[index]
 					
@@ -124,23 +126,44 @@ extension MainScreen {
 							.font(.caption)
 							.foregroundColor(.gray)
 						
-						let status = symbol.contains { day in
+						
+						let status = activeWeekdays.contains { day in
 							return day == item.0
 						}
-						Text("Hello")
+						Text(getDate(date: item.1))
+							.font(.system(size: 14))
+							.fontWeight(.semibold)
+							.padding(8)
+							.background{
+								Circle().fill(Color(task.color ?? "grayAccent"))
+									.opacity(status ? 1 : 0)
+							}
 					}
+					.frame(maxWidth: .infinity)
 				}
 				
 				
 			}
+			.padding(.bottom, 24)
 			
+		}.background {
+			RoundedRectangle(cornerRadius: 25, style: .continuous)
+				.fill(Color(task.color ??
+						   ""))
+		}
+		.onTapGesture {
+			taskModel.editTask = task
+			taskModel.editingTask()
+			taskModel.addNewTask.toggle()
 		}
 	}
 	
 	//@MARK Formating date
-	func getDate() -> String {
+	func getDate(date: Date) -> String {
 		let formatter = DateFormatter()
-		formatter.dateFormat
+		formatter.dateFormat = "dd"
+		
+		return formatter.string(from: date)
 	}
 	
 }
