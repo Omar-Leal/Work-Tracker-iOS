@@ -22,8 +22,12 @@ struct AddNewTaskView: View {
 				TaskColorPickerView
 				Divider()
 				TaskDayPickerView
+				
+			
 				Divider()
 					.padding(.vertical, 10)
+				
+				// Hiding if notification access is Rejected
 			   ToggleReminderView
 				
 				TimesPickerView
@@ -32,7 +36,7 @@ struct AddNewTaskView: View {
 			.frame(maxHeight: .infinity, alignment: .top)
 			.padding()
 			.navigationBarTitleDisplayMode(.inline)
-			.navigationTitle("Add a task")
+			.navigationTitle(taskModel.editTask != nil ? "Edit task" : "Create a task")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
 					Button {
@@ -46,10 +50,13 @@ struct AddNewTaskView: View {
 				// Delete Button
 				ToolbarItem(placement: .navigationBarLeading) {
 					Button {
-						env.dismiss()
+						if taskModel.deleteTask(context: env.managedObjectContext) {
+							env.dismiss()
+						}
 					} label: {
 						Image(systemName: "trash")
 					}.tint(Color("myTextColor"))
+						.opacity(taskModel.editTask == nil ? 0 : 1)
 				}
 				
 				
@@ -115,6 +122,7 @@ extension AddNewTaskView {
 				}
 				.padding()
 	}
+		.opacity(taskModel.notificationAccess ? 1 : 0)
 	}
 }
 
@@ -209,6 +217,7 @@ extension AddNewTaskView {
 		}
 		.frame(height: taskModel.isReminderOn ? nil : 0)
 		.opacity(taskModel.isReminderOn ? 1 : 0)
+		.opacity(taskModel.notificationAccess ? 1 : 0)
 	}
 }
 

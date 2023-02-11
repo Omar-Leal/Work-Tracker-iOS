@@ -22,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		E7379BF1298DC2FF00C5F8EF /* ColorUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorUI.xcassets; sourceTree = "<group>"; };
+		E74737B2299704F300DDE42D /* Work-Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Work-Tracker.entitlements"; sourceTree = "<group>"; };
 		E749B5E6298C9CB000021650 /* Work-Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Work-Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E749B5E9298C9CB000021650 /* Work_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work_TrackerApp.swift; sourceTree = "<group>"; };
 		E749B5EB298C9CB000021650 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		E749B5E8298C9CB000021650 /* Work-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				E74737B2299704F300DDE42D /* Work-Tracker.entitlements */,
 				E754CD69298E9E0100CD069E /* Models */,
 				E7C75C00298F3A3D00680DF5 /* AppSections */,
 				E749B5E9298C9CB000021650 /* Work_TrackerApp.swift */,
@@ -324,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Work-Tracker/Work-Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Work-Tracker/Preview Content\"";
@@ -353,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Work-Tracker/Work-Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Work-Tracker/Preview Content\"";

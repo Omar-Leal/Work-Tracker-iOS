@@ -24,6 +24,25 @@ class TaskerViewModel: ObservableObject {
 	// MARK reminder time picker
 	@Published var showTimePicker: Bool = false
 	
+	// @MARK: Notification access status
+	@Published var notificationAccess: Bool = false
+	
+	func requestNotificationAccess() {
+		UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert]) { status, _ in
+			DispatchQueue
+				.main
+				.async {
+					self.notificationAccess = status
+				}
+		}
+	}
+	
+	//@MARK:
+	init() {
+		requestNotificationAccess()
+	}
+	
+	
 	//@MARK: RESET TASK
 	func resetData() {
 		title = ""
@@ -33,6 +52,20 @@ class TaskerViewModel: ObservableObject {
 		remainderDate = Date()
 		remainderText = ""
 		editTask = nil
+	}
+	
+	
+	
+	// Delete task from database
+	func deleteTask(context: NSManagedObjectContext) -> Bool {
+		if let editTask = editTask {
+			context.delete(editTask)
+			if let _ = try? context.save() {
+				return true
+			}
+		}
+		
+		return false
 	}
 	
 	//@MARK : editing task
@@ -47,9 +80,6 @@ class TaskerViewModel: ObservableObject {
 			
 		}
 	}
-	
-	
-	
 	
 	// @MARK: Adding task to database
 	func addTask(context: NSManagedObjectContext) async -> Bool {
@@ -127,8 +157,6 @@ class TaskerViewModel: ObservableObject {
 		return notificationID
 	}
 	
-	
-
 	
 	func doneStatus() -> Bool {
 		let reminderStatus = isReminderOn ? remainderText == ""  : false
